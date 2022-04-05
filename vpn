@@ -8,7 +8,15 @@ fi
 
 if [ "$1" = "ls" ]
 then
+  echo "=================="
+  echo "Available Profiles"
+  echo "=================="
   openvpn3 configs-list
+  echo
+  echo "================"
+  echo "Current Sessions"
+  echo "================"
+  openvpn3 sessions-list
   exit 0
 fi
 
