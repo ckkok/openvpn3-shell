@@ -2,7 +2,7 @@
 
 if [ -z "$1" ]
 then
-  echo Usage: vpn <profile> <action> <args>
+  echo "Usage: vpn <profile> <action> <args>"
   exit 1
 fi
 
@@ -32,9 +32,9 @@ $MFA
 EOF
     if [ $? -eq "0" ]
     then
-      echo $PROFILE_NAME VPN session started
+      echo "$PROFILE_NAME VPN session started"
     else
-      echo Failed to connect
+      echo "Failed to connect"
       exit 1
     fi
     ;;
@@ -44,7 +44,7 @@ EOF
   set)
     if [[ (-z "$3") || ("$3" != "username" && "$3" != "password") ]] 
     then
-      echo Attribute required: username, password
+      echo "Attribute required: username, password"
       exit 1
     fi
     ATTRIBUTE=$3
@@ -62,12 +62,12 @@ EOF
       echo
     fi
     echo -n $VALUE | secret-tool store --label='OpenVPN' service $PROFILE_NAME credentials $ATTRIBUTE
-    echo Set/updated $ATTRIBUTE for profile $PROFILE_NAME
+    echo "Set/updated $ATTRIBUTE for profile $PROFILE_NAME"
     ;;
   import)
     if [ -z "$3" ]
     then
-      echo Filename needed, e.g. \"vpn someprofile import ./client.ovpn\"
+      echo "Filename needed, e.g. \"vpn someprofile import ./client.ovpn\""
       exit 1
     fi
     FILENAME=$3
@@ -77,7 +77,7 @@ EOF
     openvpn3 config-remove --config $PROFILE_NAME
     ;;
   *)
-    echo Action required: <profile> start, stop, set (username|password)
+    echo "Action required: <profile> start, stop, set (username|password)"
     exit 1
     ;;
 esac
