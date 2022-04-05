@@ -27,7 +27,6 @@ case $2 in
     if [ -z "$3" ]
     then
       read -p "Enter MFA: " MFA
-      echo
     else
       MFA=$3
     fi
