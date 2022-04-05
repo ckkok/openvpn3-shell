@@ -77,7 +77,7 @@ EOF
     openvpn3 config-remove --config $PROFILE_NAME
     ;;
   *)
-    echo "Action required: <profile> start, stop, set (username|password)"
+    echo "Action required: <profile> start, stop, set (username|password), import {filename}"
     exit 1
     ;;
 esac
