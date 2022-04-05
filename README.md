@@ -7,4 +7,4 @@ Just a wrapper to automate frequently used OpenVPN3 operations on Linux, includi
 Ensure that the following packages are installed (e.g. via apt)
 
 - openvpn3
-- secret-tool
+- libsecret-tools
